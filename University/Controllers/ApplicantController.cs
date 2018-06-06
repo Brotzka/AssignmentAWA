@@ -7,7 +7,7 @@ using University.Data;
 
 namespace University.Controllers
 {
-    public class ApplicantController : Controller
+    public class ApplicantController : MasterController
     {
         private University.Services.IService.IApplicantService _applicantService;
         public ApplicantController()

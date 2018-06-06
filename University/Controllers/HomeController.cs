@@ -7,7 +7,7 @@ using University.Services.Service;
 
 namespace University.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : MasterController
     {
         public ActionResult Index()
         {

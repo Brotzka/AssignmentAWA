@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace University.Controllers
 {
-    public class UniversityController : Controller
+    public class UniversityController : MasterController
     {
         private University.Services.Service.UniversityService _UniversityService;
 

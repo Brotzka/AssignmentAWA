@@ -35,7 +35,6 @@ namespace University.Data.DAO
                 return new Applicant();
             }
             return _applicant.ToList<Applicant>().First();
-
         }
 
         public Applicant EditApplicant(Applicant applicant)

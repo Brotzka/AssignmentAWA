@@ -20,7 +20,7 @@
             @Html.DisplayFor(modelItem => item.UniversityName)
         </td>
         <td>
-            @Html.ActionLink("Show Courses", "Get" + item.UniversityName.Replace(" ", "") + "Courses", new { Controller = "Course" })
+            @Html.ActionLink("Show Courses", "Get" + item.UniversityName.Replace(" ", "") + "Courses", new { Controller = "Course", UniversityId=item.UniversityId })
         </td>
     </tr>
 }

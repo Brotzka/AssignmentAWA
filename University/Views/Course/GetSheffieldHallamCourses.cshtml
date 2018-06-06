@@ -59,11 +59,11 @@
             @Html.DisplayFor(modelItem => item.CNSS)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Apply", "Edit", new { uniId=ViewBag.UniversityId, courseId=item.CourseId }) |
         </td>
     </tr>
 }
 
 </table>
+
+<b>@ViewBag.UniversityId</b>

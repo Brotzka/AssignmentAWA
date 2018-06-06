@@ -15,16 +15,19 @@ namespace University.Controllers
         {
             _SheffieldUniversityService = new SheffieldService.Service.SheffieldUniversityService();
             _SheffieldHallamUniversityService = new SheffieldHallamService.Service.SheffieldHallamUniversityService();
+
         }
 
-        public ActionResult GetSheffieldCourses()
+        public ActionResult GetSheffieldCourses(int UniversityId)
         {
+            ViewBag.UniversityId = UniversityId;
             return View(_SheffieldUniversityService.GetSheffCoursesInShort());
         }
 
 
-        public ActionResult GetSheffieldHallamCourses()
+        public ActionResult GetSheffieldHallamCourses(int UniversityId)
         {
+            ViewBag.UniversityId = UniversityId;
             return View(_SheffieldHallamUniversityService.GetSheffHallamCourses());
         }
     }

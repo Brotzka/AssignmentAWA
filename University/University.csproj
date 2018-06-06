@@ -155,6 +155,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UniversityController.cs" />
     <Compile Include="Global.asax.cs">
@@ -202,11 +203,12 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Applicant\AddApplicant.cshtml" />
-    <Content Include="Views\University\GetSheffCourses.cshtml" />
     <Content Include="Views\Applicant\GetApplicant.cshtml" />
     <Content Include="Views\Applicant\EditApplicant.cshtml" />
     <Content Include="Views\Applicant\DeleteApplicant.cshtml" />
     <Content Include="Views\University\GetUniversities.cshtml" />
+    <Content Include="Views\Course\GetSheffieldCourses.cshtml" />
+    <Content Include="Views\Course\GetSheffieldHallamCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

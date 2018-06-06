@@ -57,7 +57,9 @@
     </Compile>
     <Compile Include="Class1.cs" />
     <Compile Include="DAO\ApplicantDAO.cs" />
+    <Compile Include="DAO\UniversityDAO.cs" />
     <Compile Include="IDAO\IApplicantDAO.cs" />
+    <Compile Include="IDAO\IUniversityDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="University.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>

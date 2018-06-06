@@ -206,6 +206,7 @@
     <Content Include="Views\Applicant\GetApplicant.cshtml" />
     <Content Include="Views\Applicant\EditApplicant.cshtml" />
     <Content Include="Views\Applicant\DeleteApplicant.cshtml" />
+    <Content Include="Views\University\GetUniversities.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

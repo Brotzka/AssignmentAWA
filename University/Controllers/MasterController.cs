@@ -8,12 +8,16 @@ namespace University.Controllers
 {
     public class MasterController : Controller
     {
-        private University.Services.IService.IApplicantService _applicantService;
+        private static int _currentApplicantId;
         public MasterController()
         {
-            _applicantService = new University.Services.Service.ApplicantService();
-            University.Data.Applicant applicant = _applicantService.GetApplicant(3);
-            ViewBag.UserId = applicant.Id;
+            ViewBag.UserId = _currentApplicantId;
+        }
+
+        public void setCurrentApplicantId(int userId)
+        {
+            _currentApplicantId = userId;
+            ViewBag.UserId = _currentApplicantId;
         }
     }
 }

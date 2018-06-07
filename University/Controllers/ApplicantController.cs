@@ -23,6 +23,7 @@ namespace University.Controllers
         // GET: Applicant/Details/5
         public ActionResult GetApplicant(int id)
         {
+            setCurrentApplicantId(id);
             return View(_applicantService.GetApplicant(id));
         }
 
@@ -38,7 +39,7 @@ namespace University.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                
                 _applicantService.AddApplicant(applicant);
                 return RedirectToAction("GetApplicant", new { id = applicant.Id });
             }

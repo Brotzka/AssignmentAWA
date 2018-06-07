@@ -208,8 +208,7 @@
     <Content Include="Views\Applicant\EditApplicant.cshtml" />
     <Content Include="Views\Applicant\DeleteApplicant.cshtml" />
     <Content Include="Views\University\GetUniversities.cshtml" />
-    <Content Include="Views\Course\GetSheffieldCourses.cshtml" />
-    <Content Include="Views\Course\GetSheffieldHallamCourses.cshtml" />
+    <Content Include="Views\Course\GetCourses.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -230,13 +229,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SheffieldHallam.Service\SheffieldHallam.Service.csproj">
-      <Project>{90d31cc2-5ea9-4ec4-9c0c-ead6cd38c1b3}</Project>
-      <Name>SheffieldHallam.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SheffieldService\Sheffield.Service.csproj">
-      <Project>{7814d619-acd5-4552-bbd7-848030cc9549}</Project>
-      <Name>Sheffield.Service</Name>
+    <ProjectReference Include="..\Courses.Service\Courses.Service.csproj">
+      <Project>{5825bce5-e6b2-48e4-9c82-b26bb82d239b}</Project>
+      <Name>Courses.Service</Name>
     </ProjectReference>
     <ProjectReference Include="..\University.Data\University.Data.csproj">
       <Project>{7216ccd4-f028-46b9-b07d-3a8d52269096}</Project>

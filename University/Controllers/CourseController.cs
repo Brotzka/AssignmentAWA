@@ -3,32 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Courses.Service.IService;
+using Courses.Service.Service;
 
 namespace University.Controllers
 {
     public class CourseController : MasterController
     {
-        private SheffieldService.Service.SheffieldUniversityService _SheffieldUniversityService;
-        private SheffieldHallamService.Service.SheffieldHallamUniversityService _SheffieldHallamUniversityService;
+        private ICoursesService _coursesService;
 
-        public CourseController()
+        public ActionResult GetCourses(int UniversityId)
         {
-            _SheffieldUniversityService = new SheffieldService.Service.SheffieldUniversityService();
-            _SheffieldHallamUniversityService = new SheffieldHallamService.Service.SheffieldHallamUniversityService();
-
-        }
-
-        public ActionResult GetSheffieldCourses(int UniversityId)
-        {
-            ViewBag.UniversityId = UniversityId;
-            return View(_SheffieldUniversityService.GetSheffCoursesInShort());
-        }
-
-
-        public ActionResult GetSheffieldHallamCourses(int UniversityId)
-        {
-            ViewBag.UniversityId = UniversityId;
-            return View(_SheffieldHallamUniversityService.GetSheffHallamCourses());
+            switch (UniversityId)
+            {
+                case 1:
+                    _coursesService = new SheffieldCoursesService();
+                    break;
+                case 2:
+                    _coursesService = new SHUCoursesService();
+                    break;
+                default:
+                    return View();
+            }
+            return View(_coursesService.GetCourses());
         }
     }
 }

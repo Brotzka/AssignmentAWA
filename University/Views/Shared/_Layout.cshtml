@@ -20,9 +20,9 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Profile", "Details", "Applicant")</li>
-                    <li>@Html.ActionLink("My Applications", "About", "Home")</li>
-                    <li>@Html.ActionLink("Apply Now", "GetUniversities", "University")</li>
+                    <li>@Html.ActionLink("Profile", "GetApplicant", new { id=ViewBag.UserId, Controller = "Applicant"})</li>
+                    <li>@Html.ActionLink("My Applications", "GetApplications", new { userId = ViewBag.UserId, Controller = "Application" } )</li>
+                    <li>@Html.ActionLink("Universities", "GetUniversities", "University")</li>
                     <li>@Html.ActionLink("Terms and Conditions", "Contact", "Home")</li>
                 </ul>
             </div>

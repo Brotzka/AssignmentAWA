@@ -39,11 +39,5 @@ namespace University.Controllers
         {
             return View(_applicationService.GetApplicationBEANS(userId));
         }
-
-        /*
-         *
- 
-         * 
-        */
     }
 }

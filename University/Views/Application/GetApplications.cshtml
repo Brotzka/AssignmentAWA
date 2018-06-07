@@ -7,7 +7,11 @@
 <h2>GetApplications</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (Model.Count() < 5)
+    {
+        @Html.ActionLink("Create New Application", "GetUniversities", new { Controller = "University" })
+    }
+
 </p>
 <table class="table">
     <tr>

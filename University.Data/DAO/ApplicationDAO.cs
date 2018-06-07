@@ -22,6 +22,15 @@ namespace University.Data.DAO
             _context.SaveChanges();
         }
 
+        public Application GetApplication(int applicationId)
+        {
+            IQueryable<Application> _applications;
+            _applications = from application in _context.Application
+                            where application.Id == applicationId
+                            select application;
+            return _applications.ToList<Application>().First();
+        }
+
         public IList<Application> GetApplications(int userId)
         {
             IQueryable<Application> _applications;
@@ -56,6 +65,34 @@ namespace University.Data.DAO
                                     Firm = application.Firm
                                 };
             return _applicationBeans.ToList<ApplicationBEAN>();
+        }
+
+        public void DeleteApplication(Application application)
+        {
+            _context.Application.Remove(application);
+            _context.SaveChanges();
+        }
+
+        public void EditApplication(Application application)
+        {
+            Application _application = GetApplication(application.Id);
+            
+            _application.PersonalStatement = application.PersonalStatement;
+            _application.TeacherContactDetails = application.TeacherContactDetails;
+            _application.TeacherReference = application.TeacherReference;
+            _application.Firm = application.Firm;
+            _application.UniversityOffer = application.UniversityOffer;
+            _context.SaveChanges();
+        }
+
+        public IList<Application> GetAcceptedApplications(int userId)
+        {
+            IQueryable<Application> _applications;
+            _applications = from applications in _context.Application
+                            where applications.ApplicantId == userId
+                            where applications.Firm == true
+                            select applications;
+            return _applications.ToList();
         }
     }
 }

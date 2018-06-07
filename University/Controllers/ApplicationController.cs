@@ -37,7 +37,56 @@ namespace University.Controllers
 
         public ActionResult GetApplications(int userId)
         {
+            ViewBag.ShowAcceptLink = _applicationService.CanAcceptApplicationOffer(userId);
             return View(_applicationService.GetApplicationBEANS(userId));
+        }
+
+        public ActionResult DeleteApplication(int Id)
+        {
+            Application _application = _applicationService.GetApplication(Id);
+            return View(_application);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteApplication(Application application)
+        {
+            Application _application = _applicationService.GetApplication(application.Id);
+            _applicationService.DeleteApplication(_application);
+            return RedirectToAction("GetApplications", new { userId = _application.ApplicantId });            
+        }
+
+        public ActionResult EditApplication(int Id)
+        {
+            Application _application = _applicationService.GetApplication(Id);
+            return View(_application);
+        }
+
+        [HttpPost]
+        public ActionResult EditApplication(Application application)
+        {
+            _applicationService.EditApplication(application);
+            return RedirectToAction("GetApplications", new { userId = application.ApplicantId });
+        }
+
+        [HttpGet]
+        public ActionResult AcceptApplicationOffer(int Id)
+        {
+            Application _application = _applicationService.GetApplication(Id);
+            return View(_application);
+        }
+
+        [HttpPost]
+        public ActionResult AcceptApplicationOffer(Application application)
+        {
+            try
+            {
+                _applicationService.AcceptApplicationOffer(application);
+                return RedirectToAction("GetApplications", new { userId = application.ApplicantId });
+            }catch (Exception ex)
+            {
+                return View();
+            }
+            
         }
     }
 }

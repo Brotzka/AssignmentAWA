@@ -11,9 +11,16 @@ namespace University.Data.IDAO
     {
         void CreateApplication(Application application);
 
+        Application GetApplication(int applicationId);
+
         IList<Application> GetApplications(int userId);
 
         IList<ApplicationBEAN> GetApplicationBEANS(int userId);
-        
+
+        void DeleteApplication(Application application);
+
+        void EditApplication(Application application);
+
+        IList<Application> GetAcceptedApplications(int userId);
     }
 }

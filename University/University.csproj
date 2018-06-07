@@ -212,6 +212,9 @@
     <Content Include="Views\Course\GetCourses.cshtml" />
     <Content Include="Views\Application\CreateApplication.cshtml" />
     <Content Include="Views\Application\GetApplications.cshtml" />
+    <Content Include="Views\Application\DeleteApplication.cshtml" />
+    <Content Include="Views\Application\EditApplication.cshtml" />
+    <Content Include="Views\Application\AcceptApplicationOffer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

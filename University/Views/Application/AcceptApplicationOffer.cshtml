@@ -1,0 +1,35 @@
+﻿@model University.Data.Application
+
+@{
+    ViewBag.Title = "AcceptApplicationOffer";
+}
+
+<h2>Do you want to accept?</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.ApplicantId)
+    @Html.HiddenFor(model => model.UniversityId)
+    @Html.HiddenFor(model => model.UniversityOffer)
+    @Html.HiddenFor(model => model.PersonalStatement)
+    @Html.HiddenFor(model => model.TeacherContactDetails)
+    @Html.HiddenFor(model => model.TeacherReference)
+    @Html.HiddenFor(model => model.Firm)
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Accept Offer" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "GetApplications", new { userId=ViewBag.userId })
+</div>

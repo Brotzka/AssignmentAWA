@@ -13,6 +13,7 @@
     }
 
 </p>
+
 <table class="table">
     <tr>
         <th>
@@ -37,7 +38,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr @(item.Firm == true ? "class=success" : "")>
         <td>
             @Html.DisplayFor(modelItem => item.CourseName)
         </td>
@@ -57,15 +58,22 @@
             @Html.DisplayFor(modelItem => item.UniversityOffer)
         </td>
         <td>
+
+            @if (item.UniversityOffer == "P" || item.UniversityOffer == "C")
+            {
+                @Html.ActionLink("Edit", "EditApplication", new { id = item.ApplicationId })
+                <span>&nbsp;</span>
+            }
+
             @if (item.UniversityOffer == "P")
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.ApplicationId })
-                <span> | </span>
-                @Html.ActionLink("Delete", "DeleteApplication", new { id = item.ApplicationId })
+                @Html.ActionLink("Delete", "DeleteApplication", new { Id = item.ApplicationId })
+                <span>&nbsp;</span>
             }
-            @if (item.UniversityOffer == "C" || item.UniversityOffer == "U")
+            
+            @if ((item.UniversityOffer == "C" || item.UniversityOffer == "U") && ViewBag.ShowAcceptLink)
             {
-                @Html.ActionLink("Accept Offer", "AcceptApplication", new { id = item.ApplicationId })
+                @Html.ActionLink("Accept Offer", "AcceptApplicationOffer", new { Id = item.ApplicationId })
             }
         </td>
     </tr>

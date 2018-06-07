@@ -25,6 +25,9 @@ namespace University.Controllers
                 default:
                     return View();
             }
+
+            ViewBag.UniversityId = UniversityId;
+
             return View(_coursesService.GetCourses());
         }
     }

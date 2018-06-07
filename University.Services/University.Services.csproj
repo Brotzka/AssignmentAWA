@@ -42,10 +42,12 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="IService\IApplicantService.cs" />
+    <Compile Include="IService\IApplicationService.cs" />
     <Compile Include="IService\IUniversityService.cs" />
     <Compile Include="IService\IWebServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ApplicantService.cs" />
+    <Compile Include="Service\ApplicationService.cs" />
     <Compile Include="Service\UniversityService.cs" />
   </ItemGroup>
   <ItemGroup />

@@ -55,10 +55,13 @@
     <Compile Include="Application.cs">
       <DependentUpon>UniversityModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BEANS\ApplicationBEAN.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DAO\ApplicantDAO.cs" />
+    <Compile Include="DAO\ApplicationDAO.cs" />
     <Compile Include="DAO\UniversityDAO.cs" />
     <Compile Include="IDAO\IApplicantDAO.cs" />
+    <Compile Include="IDAO\IApplicationDAO.cs" />
     <Compile Include="IDAO\IUniversityDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="University.cs">

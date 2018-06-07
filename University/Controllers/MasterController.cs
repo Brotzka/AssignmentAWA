@@ -12,7 +12,7 @@ namespace University.Controllers
         public MasterController()
         {
             _applicantService = new University.Services.Service.ApplicantService();
-            University.Data.Applicant applicant = _applicantService.GetApplicant(1);
+            University.Data.Applicant applicant = _applicantService.GetApplicant(3);
             ViewBag.UserId = applicant.Id;
         }
     }

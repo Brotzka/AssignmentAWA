@@ -22,5 +22,7 @@ namespace University.Data.IDAO
         void EditApplication(Application application);
 
         IList<Application> GetAcceptedApplications(int userId);
+
+        IList<ApplicationBEAN> GetUniversityApplicationBEANS(int universityId);
     }
 }

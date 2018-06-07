@@ -69,7 +69,13 @@ namespace University.Services.Service
             {
                 throw new Exception("Not allowed to edit Application!");
             }
+        }
 
+        public void MakeApplicationOffer(int ApplicationId, string Offer)
+        {
+            Application _application = GetApplication(ApplicationId);
+            _application.UniversityOffer = Offer;
+            _applicationDAO.EditApplication(_application);
         }
 
         public void AcceptApplicationOffer(Application application)
@@ -91,6 +97,11 @@ namespace University.Services.Service
         {
             IList<Application> _applications = _applicationDAO.GetAcceptedApplications(userId);
             return _applications.Count() == 0;
+        }
+
+        public IList<ApplicationBEAN> GetUniversityApplicationBEANS(int universityId)
+        {
+            return _applicationDAO.GetUniversityApplicationBEANS(universityId);
         }
     }
 }

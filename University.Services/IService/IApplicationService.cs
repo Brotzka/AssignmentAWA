@@ -25,5 +25,7 @@ namespace University.Services.IService
         void AcceptApplicationOffer(Application application);
 
         bool CanAcceptApplicationOffer(int userId);
+
+        IList<ApplicationBEAN> GetUniversityApplicationBEANS(int universityId);
     }
 }

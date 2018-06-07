@@ -38,7 +38,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr @(item.Firm == true ? "class=success" : "")>
+    <tr @(item.Firm == true ? "class=success" : "class=active")>
         <td>
             @Html.DisplayFor(modelItem => item.CourseName)
         </td>
@@ -57,26 +57,37 @@
         <td>
             @Html.DisplayFor(modelItem => item.UniversityOffer)
         </td>
-        <td>
 
-            @if (item.UniversityOffer == "P" || item.UniversityOffer == "C")
-            {
-                @Html.ActionLink("Edit", "EditApplication", new { id = item.ApplicationId })
-                <span>&nbsp;</span>
-            }
+            <td>
 
-            @if (item.UniversityOffer == "P")
-            {
-                @Html.ActionLink("Delete", "DeleteApplication", new { Id = item.ApplicationId })
-                <span>&nbsp;</span>
-            }
-            
-            @if ((item.UniversityOffer == "C" || item.UniversityOffer == "U") && ViewBag.ShowAcceptLink)
-            {
-                @Html.ActionLink("Accept Offer", "AcceptApplicationOffer", new { Id = item.ApplicationId })
-            }
-        </td>
-    </tr>
+                @if (item.UniversityOffer == "P" || item.UniversityOffer == "C")
+                {
+                    @Html.ActionLink("Edit", "EditApplication", new { id = item.ApplicationId })
+                    <span>&nbsp;</span>
+                }
+
+                @if (item.UniversityOffer == "P")
+                {
+                    @Html.ActionLink("Delete", "DeleteApplication", new { Id = item.ApplicationId })
+                    <span>&nbsp;</span>
+                }
+
+                @if ((item.UniversityOffer == "C" || item.UniversityOffer == "U") && ViewBag.ShowAcceptLink)
+                {
+                    @Html.ActionLink("Accept Offer", "AcceptApplicationOffer", new { Id = item.ApplicationId })
+                }
+
+                
+            </td>
+        </tr>
 }
 
 </table>
+<p>
+    <small>
+        P = Pending | 
+        U = Unconditional | 
+        C = Conditional | 
+        R = Rejected
+    </small>
+</p>

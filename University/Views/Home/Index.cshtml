@@ -6,8 +6,17 @@
     <h1>National Admission Agency</h1>
     <p class="lead">Application Service for Students</p>
     <p>
-        @Html.ActionLink("Register", "AddApplicant", new { Controller = "Applicant" }, new { @class = "btn btn-primary" })
-        @Html.ActionLink("Login", "AddApplicant", new { Controller = "Applicant" }, new { @class = "btn btn-primary" })
+        @if (ViewBag.UserId > 0)
+        {
+            @Html.ActionLink("Profile", "GetApplicant", new { id = ViewBag.UserId, Controller = "Applicant" }, new { @class = "btn btn-primary" })
+        }
+        else
+        {
+            @Html.ActionLink("Register", "AddApplicant", new { Controller = "Applicant" }, new { @class = "btn btn-primary" })
+            <span>&nbsp;</span>
+            @Html.ActionLink("Login", "AddApplicant", new { Controller = "Applicant" }, new { @class = "btn btn-primary" })
+
+        }
 
     </p>
 </div>

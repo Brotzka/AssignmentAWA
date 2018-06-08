@@ -19,10 +19,15 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.UniversityName)
+            <a href="@Url.Action("GetCourses", new { Controller = "Course", UniversityId = item.UniversityId })" title="Show Courses">
+                @Html.DisplayFor(modelItem => item.UniversityName)
+            </a>
         </td>
         <td>
-            @Html.ActionLink("Show Courses", "GetCourses", new { Controller = "Course", UniversityId=item.UniversityId })
+            
+            <a href="@Url.Action("GetCourses", new { Controller = "Course", UniversityId = item.UniversityId })" title="Show Courses">
+                <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+            </a>
         </td>
     </tr>
 }

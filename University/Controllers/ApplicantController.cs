@@ -39,8 +39,8 @@ namespace University.Controllers
         {
             try
             {
-                
                 _applicantService.AddApplicant(applicant);
+                ViewBag.SuccessMessage = "Profile successfully created!";
                 return RedirectToAction("GetApplicant", new { id = applicant.Id });
             }
             catch
@@ -61,7 +61,6 @@ namespace University.Controllers
         {
             try
             {
-                // TODO: Add update logic here
                 Applicant _applicant = _applicantService.EditApplicant(applicant);
                 return RedirectToAction("GetApplicant", new { id = applicant.Id });
             }
@@ -93,6 +92,12 @@ namespace University.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult LogoutApplicant()
+        {
+            setCurrentApplicantId(0);
+            return Redirect("/");
         }
     }
 }

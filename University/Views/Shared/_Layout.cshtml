@@ -24,6 +24,7 @@
                     {
                         <li>@Html.ActionLink("Profile", "GetApplicant", new { id = ViewBag.UserId, Controller = "Applicant" })</li>
                         <li>@Html.ActionLink("Applications", "GetApplications", new { userId = ViewBag.UserId, Controller = "Application" })</li>
+                        <li>@Html.ActionLink("Logout", "LogoutApplicant", new { id = ViewBag.UserId, Controller = "Applicant" })</li>
                     }
                     <li>@Html.ActionLink("Terms and Conditions", "Contact", "Home")</li>
                 </ul>
@@ -36,6 +37,14 @@
             <div class="alert alert-warning alert-dismissible" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Warning!</strong> @ViewBag.ErrorMessage
+            </div>
+        }
+
+        @if (ViewBag.SuccessMessage != null)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <strong>Success!</strong> @ViewBag.SuccessMessage
             </div>
         }
 

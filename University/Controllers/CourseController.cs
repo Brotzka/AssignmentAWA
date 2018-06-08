@@ -14,6 +14,15 @@ namespace University.Controllers
 
         public ActionResult GetCourses(int UniversityId)
         {
+            initCoursesService(UniversityId);
+
+            ViewBag.UniversityId = UniversityId;
+
+            return View(_coursesService.GetCourses());
+        }
+
+        public void initCoursesService(int UniversityId)
+        {
             switch (UniversityId)
             {
                 case 1:
@@ -22,13 +31,7 @@ namespace University.Controllers
                 case 2:
                     _coursesService = new SHUCoursesService();
                     break;
-                default:
-                    return View();
             }
-
-            ViewBag.UniversityId = UniversityId;
-
-            return View(_coursesService.GetCourses());
         }
     }
 }

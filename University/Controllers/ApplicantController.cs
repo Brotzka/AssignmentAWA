@@ -40,7 +40,6 @@ namespace University.Controllers
             try
             {
                 _applicantService.AddApplicant(applicant);
-                ViewBag.SuccessMessage = "Profile successfully created!";
                 return RedirectToAction("GetApplicant", new { id = applicant.Id });
             }
             catch

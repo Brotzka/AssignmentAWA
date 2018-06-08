@@ -24,6 +24,17 @@ namespace University.Services.Service
             application.UniversityOffer = "P";
             application.Firm = false;
             IList<Application> applicationList = _applicationDAO.GetApplications(application.ApplicantId);
+            foreach(Application _application in applicationList)
+            {
+                if (_application.CourseName == application.CourseName)
+                {
+                    throw new Exception("Already applied for this course!");
+                }
+                if (_application.Firm == true)
+                {
+                    throw new Exception("You've already made a firm!");
+                }
+            }
             if(applicationList.Count() < 5)
             {
                 _applicationDAO.CreateApplication(application);

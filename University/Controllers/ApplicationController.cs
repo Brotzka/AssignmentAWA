@@ -31,8 +31,16 @@ namespace University.Controllers
         [HttpPost]
         public ActionResult CreateApplication(Application application)
         {
-            _applicationService.CreateApplication(application);
-            return RedirectToAction("GetApplications", new { userId=application.ApplicantId });
+            try
+            {
+                _applicationService.CreateApplication(application);
+                return RedirectToAction("GetApplications", new { userId = application.ApplicantId });
+            } catch (Exception ex)
+            {
+                ViewBag.ErrorMessage = ex.Message;
+                return View();
+            } 
+            
         }
 
         public ActionResult GetApplications(int userId)

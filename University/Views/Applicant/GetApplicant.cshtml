@@ -4,14 +4,12 @@
     ViewBag.Title = "GetApplicant";
 }
 
-<h2>GetApplicant</h2>
+<h2>Your Profile</h2>
 
 <div>
-    <h4>Applicant</h4>
-    <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicantName)
+            Name
         </dt>
 
         <dd>
@@ -19,7 +17,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.ApplicantAddress)
+            Address
         </dt>
 
         <dd>
@@ -45,9 +43,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "EditApplicant", new { id = Model.Id }) |
-    @Html.ActionLink("Delete Profile", "DeleteApplicant", new { id = Model.Id })
-</p>
-<p>
-    @Html.ActionLink("Browse Universities", "GetUniversities", "University")
+    @Html.ActionLink("Edit", "EditApplicant", new { id = Model.Id }, new { @class="btn btn-primary btn-sm" })
+    @Html.ActionLink("Delete Profile", "DeleteApplicant", new { id = Model.Id }, new { @class = "btn btn-danger btn-sm" })
 </p>

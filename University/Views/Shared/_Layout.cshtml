@@ -23,8 +23,7 @@
                     @if(ViewBag.UserId > 0)
                     {
                         <li>@Html.ActionLink("Profile", "GetApplicant", new { id = ViewBag.UserId, Controller = "Applicant" })</li>
-                        <li>@Html.ActionLink("My Applications", "GetApplications", new { userId = ViewBag.UserId, Controller = "Application" })</li>
-                        <li>@Html.ActionLink("Universities", "GetUniversities", "University")</li>
+                        <li>@Html.ActionLink("Applications", "GetApplications", new { userId = ViewBag.UserId, Controller = "Application" })</li>
                     }
                     <li>@Html.ActionLink("Terms and Conditions", "Contact", "Home")</li>
                 </ul>
@@ -34,8 +33,6 @@
     <div class="container body-content">
         @RenderBody()
     </div>
-
-    <b>UserId: @ViewBag.UserId</b>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

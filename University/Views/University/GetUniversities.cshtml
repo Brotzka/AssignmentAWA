@@ -4,14 +4,16 @@
     ViewBag.Title = "GetUniversities";
 }
 
-<h2>GetUniversities</h2>
+<h2>Universities</h2>
 
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.UniversityName)
+            University
         </th>
-        <th></th>
+        <th>
+            +
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -26,5 +28,9 @@
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to applications", "GetApplications", new { userId = ViewBag.UserId, Controller="Application" }, new { @class = "btn btn-link btn-sm" })
+</div>
 
 

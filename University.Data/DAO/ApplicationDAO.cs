@@ -121,5 +121,33 @@ namespace University.Data.DAO
                                 };
             return _applicationBeans.ToList<ApplicationBEAN>();
         }
+
+        public IList<ApplicationBEAN> GetUniversityApplicationBEANSByCourseName(int universityId, string CourseName)
+        {
+            IQueryable<ApplicationBEAN> _applicationBeans;
+            _applicationBeans = from application in _context.Application
+                                from applicant in _context.Applicant
+                                from university in _context.University
+                                where application.UniversityId == universityId
+                                where application.ApplicantId == applicant.Id
+                                where university.UniversityId == application.UniversityId
+                                where application.CourseName == CourseName
+                                select new ApplicationBEAN
+                                {
+                                    ApplicationId = application.Id,
+                                    ApplicantName = applicant.ApplicantName,
+                                    ApplicantAddress = applicant.ApplicantAddress,
+                                    ApplicantEmail = applicant.Email,
+                                    ApplicantPhone = applicant.Phone,
+                                    CourseName = application.CourseName,
+                                    University = university.UniversityName,
+                                    PersonalStatement = application.PersonalStatement,
+                                    TeacherReference = application.TeacherReference,
+                                    TeacherContactDetails = application.TeacherContactDetails,
+                                    UniversityOffer = application.UniversityOffer,
+                                    Firm = application.Firm
+                                };
+            return _applicationBeans.ToList<ApplicationBEAN>();
+        }
     }
 }

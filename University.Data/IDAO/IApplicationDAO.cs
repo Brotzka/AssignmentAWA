@@ -24,5 +24,7 @@ namespace University.Data.IDAO
         IList<Application> GetAcceptedApplications(int userId);
 
         IList<ApplicationBEAN> GetUniversityApplicationBEANS(int universityId);
+
+        IList<ApplicationBEAN> GetUniversityApplicationBEANSByCourseName(int universityId, string CourseName);
     }
 }

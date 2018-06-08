@@ -114,5 +114,10 @@ namespace University.Services.Service
         {
             return _applicationDAO.GetUniversityApplicationBEANS(universityId);
         }
+
+        public IList<ApplicationBEAN> GetUniversityApplicationBEANSByCourseName(int universityId, string CourseName)
+        {
+            return _applicationDAO.GetUniversityApplicationBEANSByCourseName(universityId, CourseName);
+        }
     }
 }

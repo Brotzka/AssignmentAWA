@@ -31,15 +31,29 @@ public class NAAWebService : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public List<ApplicationBEAN> GetAllApplications(int Id)
+    public List<ApplicationBEAN> GetAllApplications(int UniversityId)
     {
-        return _applicationService.GetUniversityApplicationBEANS(Id).ToList<ApplicationBEAN>();
+        return _applicationService.GetUniversityApplicationBEANS(UniversityId).ToList<ApplicationBEAN>();
     }
 
     [WebMethod]
-    public String MakeApplicationOffer(int Id, string Offer)
+    public List<ApplicationBEAN> GetApplicationsByCourse(int UniversityId, String CourseName)
     {
-        _applicationService.MakeApplicationOffer(Id, Offer);
+        return _applicationService.GetUniversityApplicationBEANSByCourseName(UniversityId, CourseName).ToList<ApplicationBEAN>();
+    }
+
+    [WebMethod]
+    public String MakeApplicationOffer(int ApplicationId, int UniversityId, string Offer)
+    {
+        if (Offer != "C" && Offer != "U" && Offer != "R") return "Offer not allowed.";
+        Application application = _applicationService.GetApplication(ApplicationId);
+        if (application.Firm == true) return "The application is already confirmed.";
+        if (application.UniversityId != UniversityId) return "Not allowed to make offer.";
+        if (application.UniversityOffer == "R") return "The application is already rejected.";
+        if (application.UniversityOffer == "U") return "The application is already on unconditional.";
+
+        _applicationService.MakeApplicationOffer(ApplicationId, Offer);
         return "Success!";
     }
+    
 }
